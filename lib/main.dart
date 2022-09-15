@@ -1,11 +1,27 @@
 import 'package:flutter/material.dart';
+import 'trans.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final List<Trans> trans = [
+    Trans(
+      id: 'Erick',
+      title: 'HeadSet',
+      amount: 1000,
+      date: DateTime.now(),
+    ),
+    Trans(
+      id: 'Kevin',
+      title: 'Cable',
+      amount: 900,
+      date: DateTime.now(),
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -23,20 +39,23 @@ class MyApp extends StatelessWidget {
                     bottomRight: Radius.circular(35))),
             backgroundColor: Colors.red.shade300),
         body: Column(
-          children: const <Widget>[
-            SizedBox(
+          children: <Widget>[
+            const SizedBox(
               width: double.infinity,
               child: Card(
                 elevation: 5,
-                child:   Text('expenses overview', textAlign: TextAlign.center,),
+                child: Text(
+                  'expenses overview',
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
-            SizedBox(
-              width: double.infinity,
-              child: Card(
-                elevation: 5,
-                child: Text('list of expenses', textAlign: TextAlign.center),
-              ),
+            Column(
+              children: trans.map((exp) {
+                return Card(
+                  child: Text(exp.id),
+                );
+              }).toList(),
             )
           ],
         ),
