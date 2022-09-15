@@ -24,11 +24,19 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.red.shade300),
         body: Column(
           children: const <Widget>[
-            Card(
-              child: Text('chart overview'),
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                elevation: 5,
+                child:   Text('expenses overview', textAlign: TextAlign.center,),
+              ),
             ),
-            Card(
-              child: Text('list of expenses'),
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                elevation: 5,
+                child: Text('list of expenses', textAlign: TextAlign.center),
+              ),
             )
           ],
         ),
