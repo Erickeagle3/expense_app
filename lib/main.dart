@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
                           border: Border.all(color: Colors.cyan, width: 4)),
                       padding: const EdgeInsets.all(10),
                       child: Text(
-                        exp.amount.toString(),
+                        '₹ ${exp.amount}',
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
@@ -73,6 +73,7 @@ class MyApp extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
+                        // ignore: prefer_const_constructors
                         Text(
                           exp.title,
                           style: const TextStyle(
