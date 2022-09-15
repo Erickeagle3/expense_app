@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'trans.dart';
 import 'package:intl/intl.dart';
@@ -6,9 +8,9 @@ void main() {
   runApp(MyApp());
 }
 
+
 class MyApp extends StatelessWidget {
   MyApp({super.key});
-
   final List<Trans> trans = [
     Trans(
       id: 'Erick',
@@ -23,6 +25,11 @@ class MyApp extends StatelessWidget {
       date: DateTime.now(),
     ),
   ];
+
+  String? titleIn;
+  String? amountIn;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -57,17 +64,24 @@ class MyApp extends StatelessWidget {
                   padding: const EdgeInsets.all(10),
                   child: Column(
                     children: <Widget>[
-                      const TextField(
-                        decoration: InputDecoration(labelText: 'Title'),
+                      TextField(
+                        decoration: const InputDecoration(labelText: 'Title'),
+                        onChanged: (value) {
+                          titleIn = value;
+                        }
                       ),
-                      const TextField(
-                        decoration: InputDecoration(labelText: 'Amount'),
+                      TextField(
+                        decoration: const InputDecoration(labelText: 'Amount'),
+                        onChanged: (value) => amountIn = value,
                       ),
                       TextButton(
                           style: ButtonStyle(
                               foregroundColor: MaterialStateProperty.all(
                                   Colors.cyan.shade300)),
-                          onPressed: () {},
+                          onPressed: () {
+                            print(titleIn);
+                            print(amountIn);
+                          },
                           child: const Text(
                             'Add Spends',
                             style: TextStyle(
