@@ -57,6 +57,11 @@ class MyApp extends StatelessWidget {
                   children: <Widget>[
                     // ignore: avoid_unnecessary_containers
                     Container(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 14),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.cyan, width: 4)),
+                      padding: const EdgeInsets.all(10),
                       child: Text(exp.amount.toString()),
                     ),
                     Column(
