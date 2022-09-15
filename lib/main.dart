@@ -56,13 +56,23 @@ class MyApp extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   child: Column(
-                    children: const <Widget>[
-                      TextField(
+                    children: <Widget>[
+                      const TextField(
                         decoration: InputDecoration(labelText: 'Title'),
                       ),
-                      TextField(
+                      const TextField(
                         decoration: InputDecoration(labelText: 'Amount'),
                       ),
+                      TextButton(
+                          style: ButtonStyle(
+                              foregroundColor: MaterialStateProperty.all(
+                                  Colors.cyan.shade300)),
+                          onPressed: () {},
+                          child: const Text(
+                            'Add Spends',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16),
+                          ))
                     ],
                   ),
                 )),
