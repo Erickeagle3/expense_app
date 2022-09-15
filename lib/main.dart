@@ -62,12 +62,26 @@ class MyApp extends StatelessWidget {
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.cyan, width: 4)),
                       padding: const EdgeInsets.all(10),
-                      child: Text(exp.amount.toString()),
+                      child: Text(
+                        exp.amount.toString(),
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: Colors.cyan),
+                      ),
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(exp.title),
-                        Text(exp.date.toString()),
+                        Text(
+                          exp.title,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                        Text(
+                          exp.date.toString(),
+                          style: const TextStyle(fontSize: 16),
+                        ),
                       ],
                     )
                   ],
