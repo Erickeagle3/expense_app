@@ -53,8 +53,20 @@ class MyApp extends StatelessWidget {
             Column(
               children: trans.map((exp) {
                 return Card(
-                  child: Text(exp.id),
-                );
+                    child: Row(
+                  children: <Widget>[
+                    // ignore: avoid_unnecessary_containers
+                    Container(
+                      child: Text(exp.amount.toString()),
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Text(exp.title),
+                        Text(exp.date.toString()),
+                      ],
+                    )
+                  ],
+                ));
               }).toList(),
             )
           ],
