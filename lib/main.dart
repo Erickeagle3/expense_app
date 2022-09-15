@@ -51,6 +51,21 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             ),
+            Card(
+                elevation: 10,
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    children: const <Widget>[
+                      TextField(
+                        decoration: InputDecoration(labelText: 'Title'),
+                      ),
+                      TextField(
+                        decoration: InputDecoration(labelText: 'Amount'),
+                      ),
+                    ],
+                  ),
+                )),
             Column(
               children: trans.map((exp) {
                 return Card(
@@ -81,7 +96,7 @@ class MyApp extends StatelessWidget {
                               fontWeight: FontWeight.bold, fontSize: 16),
                         ),
                         Text(
-                         DateFormat().format(exp.date),
+                          DateFormat().format(exp.date),
                           style: const TextStyle(fontSize: 16),
                         ),
                       ],
