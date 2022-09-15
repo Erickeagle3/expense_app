@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'trans.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(MyApp());
@@ -80,7 +81,7 @@ class MyApp extends StatelessWidget {
                               fontWeight: FontWeight.bold, fontSize: 16),
                         ),
                         Text(
-                          exp.date.toString(),
+                         DateFormat().format(exp.date),
                           style: const TextStyle(fontSize: 16),
                         ),
                       ],
