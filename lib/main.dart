@@ -1,35 +1,12 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
-import 'trans.dart';
-import 'package:intl/intl.dart';
+import 'package:expense_app/widgets/user_transaction.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-  final List<Trans> trans = [
-    Trans(
-      id: 'Erick',
-      title: 'HeadSet',
-      amount: 1000,
-      date: DateTime.now(),
-    ),
-    Trans(
-      id: 'Kevin',
-      title: 'Cable',
-      amount: 900,
-      date: DateTime.now(),
-    ),
-  ];
-
-  String? titleIn;
-  String? amountIn;
-
-
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +24,8 @@ class MyApp extends StatelessWidget {
                     bottomRight: Radius.circular(35))),
             backgroundColor: Colors.red.shade300),
         body: Column(
-          children: <Widget>[
-            const SizedBox(
+          children:  <Widget>[
+             SizedBox(
               width: double.infinity,
               child: Card(
                 elevation: 5,
@@ -58,77 +35,7 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             ),
-            Card(
-                elevation: 10,
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    children: <Widget>[
-                      TextField(
-                        decoration: const InputDecoration(labelText: 'Title'),
-                        onChanged: (value) {
-                          titleIn = value;
-                        }
-                      ),
-                      TextField(
-                        decoration: const InputDecoration(labelText: 'Amount'),
-                        onChanged: (value) => amountIn = value,
-                      ),
-                      TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all(
-                                  Colors.cyan.shade300)),
-                          onPressed: () {
-                            print(titleIn);
-                            print(amountIn);
-                          },
-                          child: const Text(
-                            'Add Spends',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 16),
-                          ))
-                    ],
-                  ),
-                )),
-            Column(
-              children: trans.map((exp) {
-                return Card(
-                    child: Row(
-                  children: <Widget>[
-                    // ignore: avoid_unnecessary_containers
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                          vertical: 12, horizontal: 14),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.cyan, width: 4)),
-                      padding: const EdgeInsets.all(10),
-                      child: Text(
-                        '₹ ${exp.amount}',
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
-                            color: Colors.cyan),
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        // ignore: prefer_const_constructors
-                        Text(
-                          exp.title,
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 16),
-                        ),
-                        Text(
-                          DateFormat().format(exp.date),
-                          style: const TextStyle(fontSize: 16),
-                        ),
-                      ],
-                    )
-                  ],
-                ));
-              }).toList(),
-            )
+            UserTransaction(),
           ],
         ),
       ),
