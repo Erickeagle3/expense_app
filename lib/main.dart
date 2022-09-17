@@ -23,22 +23,20 @@ class MyApp extends StatelessWidget {
                     bottomLeft: Radius.circular(35),
                     bottomRight: Radius.circular(35))),
             backgroundColor: Colors.red.shade300),
-        body: SingleChildScrollView(
-          child: Column(
-            children: const <Widget>[
-               SizedBox(
-                width: double.infinity,
-                child: Card(
-                  elevation: 5,
-                  child: Text(
-                    'expenses overview',
-                    textAlign: TextAlign.center,
-                  ),
+        body: ListView(
+          children: const <Widget>[
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                elevation: 5,
+                child: Text(
+                  'expenses overview',
+                  textAlign: TextAlign.center,
                 ),
               ),
-              UserTransaction(),
-            ],
-          ),
+            ),
+            UserTransaction(),
+          ],
         ),
       ),
     );
