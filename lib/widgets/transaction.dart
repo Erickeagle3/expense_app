@@ -10,43 +10,49 @@ class MyTransactions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: Transaction.map((exp) {
-        return Card(
-            child: Row(
-          children: <Widget>[
-            // ignore: avoid_unnecessary_containers
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 14),
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.cyan, width: 4)),
-              padding: const EdgeInsets.all(10),
-              child: Text(
-                '₹ ${exp.amount}',
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                    color: Colors.cyan),
-              ),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return SizedBox(
+      height: 800,
+      child: SingleChildScrollView(
+        child: Column(
+          children: Transaction.map((exp) {
+            return Card(
+                child: Row(
               children: <Widget>[
-                // ignore: prefer_const_constructors
-                Text(
-                  exp.title,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 16),
+                // ignore: avoid_unnecessary_containers
+                Container(
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 14),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.cyan, width: 4)),
+                  padding: const EdgeInsets.all(10),
+                  child: Text(
+                    '₹ ${exp.amount}',
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        color: Colors.cyan),
+                  ),
                 ),
-                Text(
-                  DateFormat().format(exp.date),
-                  style: const TextStyle(fontSize: 16),
-                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    // ignore: prefer_const_constructors
+                    Text(
+                      exp.title,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                    Text(
+                      DateFormat().format(exp.date),
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                  ],
+                )
               ],
-            )
-          ],
-        ));
-      }).toList(),
+            ));
+          }).toList(),
+        ),
+      ),
     );
   }
 }
