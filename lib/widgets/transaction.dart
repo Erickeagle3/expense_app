@@ -11,9 +11,9 @@ class MyTransactions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 800,
-      child: ListView(
-        children: Transaction.map((exp) {
+      height: 780,
+      child: ListView.builder(
+        itemBuilder: (text, index) {
           return Card(
               child: Row(
             children: <Widget>[
@@ -25,7 +25,7 @@ class MyTransactions extends StatelessWidget {
                     border: Border.all(color: Colors.cyan, width: 4)),
                 padding: const EdgeInsets.all(10),
                 child: Text(
-                  '₹ ${exp.amount}',
+                  '₹ ${Transaction[index].amount}',
                   style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
@@ -37,19 +37,20 @@ class MyTransactions extends StatelessWidget {
                 children: <Widget>[
                   // ignore: prefer_const_constructors
                   Text(
-                    exp.title,
+                    Transaction[index].title,
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   Text(
-                    DateFormat().format(exp.date),
+                    DateFormat().format(Transaction[index].date),
                     style: const TextStyle(fontSize: 16),
                   ),
                 ],
               )
             ],
           ));
-        }).toList(),
+        },
+        itemCount: Transaction.length,
       ),
     );
   }
