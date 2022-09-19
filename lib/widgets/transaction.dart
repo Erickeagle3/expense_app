@@ -25,7 +25,7 @@ class MyTransactions extends StatelessWidget {
                     border: Border.all(color: Colors.cyan, width: 4)),
                 padding: const EdgeInsets.all(10),
                 child: Text(
-                  '₹ ${Transaction[index].amount}',
+                  '₹ ${Transaction[index].amount.toStringAsFixed(2)}',
                   style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
