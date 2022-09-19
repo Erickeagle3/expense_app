@@ -18,10 +18,12 @@ class NewTransaction extends StatelessWidget {
               TextField(
                 decoration: const InputDecoration(labelText: 'Title'),
                 controller: titleInput,
+                keyboardType: TextInputType.name,
               ),
               TextField(
                 decoration: const InputDecoration(labelText: 'Amount'),
                 controller: amountInput,
+                keyboardType: TextInputType.number,
               ),
               TextButton(
                   style: ButtonStyle(
