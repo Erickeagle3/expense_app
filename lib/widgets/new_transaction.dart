@@ -7,6 +7,15 @@ class NewTransaction extends StatelessWidget {
 
   NewTransaction(this.adduserinput, {super.key});
 
+  void submiteinfo() {
+    final enteredInfo = titleInput.text;
+    final enteredAmount = double.parse(amountInput.text);
+    if (enteredInfo.isEmpty || enteredAmount <= 0) {
+      return;
+    }
+    adduserinput(enteredInfo, enteredAmount);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -19,22 +28,21 @@ class NewTransaction extends StatelessWidget {
                 decoration: const InputDecoration(labelText: 'Title'),
                 controller: titleInput,
                 keyboardType: TextInputType.name,
+                onSubmitted: (value) => submiteinfo(),
               ),
               TextField(
                 decoration: const InputDecoration(labelText: 'Amount'),
                 controller: amountInput,
                 keyboardType: TextInputType.number,
+                onSubmitted: (value) => submiteinfo(),
               ),
               TextButton(
                   style: ButtonStyle(
                       foregroundColor:
                           MaterialStateProperty.all(Colors.cyan.shade300)),
-                  onPressed: () {
-                    adduserinput(
-                        titleInput.text, double.parse(amountInput.text));
-                  },
+                  onPressed: submiteinfo,
                   child: const Text(
-                    'Add Spends',
+                    'Add Spents',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ))
             ],
