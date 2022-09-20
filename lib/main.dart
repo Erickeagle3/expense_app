@@ -40,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
   ];
 
+  // ignore: non_constant_identifier_names
   void _UserInput(String textTitle, double textAmount) {
     final newtext = Trans(
       title: textTitle,
