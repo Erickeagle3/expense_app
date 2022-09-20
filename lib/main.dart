@@ -6,12 +6,13 @@ import 'package:expense_app/widgets/transaction.dart';
 void main() {
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return   MaterialApp(
+    return MaterialApp(
       title: 'Expenses Calculator',
       theme: ThemeData(
         primaryColor: Colors.amberAccent,
@@ -27,6 +28,7 @@ class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
+
 class _MyHomePageState extends State<MyHomePage> {
   final List<Trans> _userTransaction = [
     Trans(
@@ -78,6 +80,11 @@ class _MyHomePageState extends State<MyHomePage> {
           title: const Text('Expenses Calculator'),
           titleTextStyle: const TextStyle(
               fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+            bottomLeft: Radius.elliptical(20, 20),
+            bottomRight: Radius.elliptical(20, 20),
+          )),
           backgroundColor: Theme.of(context).primaryColor,
           centerTitle: true,
           actions: <Widget>[
