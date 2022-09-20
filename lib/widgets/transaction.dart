@@ -11,7 +11,7 @@ class MyTransactions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 600, //changing acording to testing device for now.
+      height: 300, //changing acording to testing device for now.
       child: ListView.builder(
         itemBuilder: (text, index) {
           return Card(
