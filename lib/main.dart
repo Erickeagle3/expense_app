@@ -6,14 +6,18 @@ import 'package:expense_app/widgets/transaction.dart';
 void main() {
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter App',
-      home: MyHomePage(),
+    return MaterialApp(
+      title: 'Expenses Calculator',
+      theme: ThemeData(
+        primaryColor: Colors.amberAccent,
+      ),
+      home: const MyHomePage(),
     );
   }
 }
@@ -24,6 +28,7 @@ class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
+
 class _MyHomePageState extends State<MyHomePage> {
   final List<Trans> _userTransaction = [
     Trans(
@@ -75,13 +80,13 @@ class _MyHomePageState extends State<MyHomePage> {
           title: const Text('Expenses Calculator'),
           titleTextStyle: const TextStyle(
               fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
-          centerTitle: true,
-          toolbarOpacity: 0.9,
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(35),
-                  bottomRight: Radius.circular(35))),
-          backgroundColor: Colors.red.shade300,
+            bottomLeft: Radius.elliptical(20, 20),
+            bottomRight: Radius.elliptical(20, 20),
+          )),
+          backgroundColor: Theme.of(context).primaryColor,
+          centerTitle: true,
           actions: <Widget>[
             IconButton(
               onPressed: () => _startNewTransaction(context),
@@ -108,6 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
+          backgroundColor: Theme.of(context).primaryColor,
           onPressed: () => _startNewTransaction(context),
           child: const Icon(Icons.add),
         ),
