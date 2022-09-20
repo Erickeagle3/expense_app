@@ -11,9 +11,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter App',
-      home: MyHomePage(),
+    return   MaterialApp(
+      title: 'Expenses Calculator',
+      theme: ThemeData(
+        primaryColor: Colors.amberAccent,
+      ),
+      home: const MyHomePage(),
     );
   }
 }
@@ -75,13 +78,8 @@ class _MyHomePageState extends State<MyHomePage> {
           title: const Text('Expenses Calculator'),
           titleTextStyle: const TextStyle(
               fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+          backgroundColor: Theme.of(context).primaryColor,
           centerTitle: true,
-          toolbarOpacity: 0.9,
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(35),
-                  bottomRight: Radius.circular(35))),
-          backgroundColor: Colors.red.shade300,
           actions: <Widget>[
             IconButton(
               onPressed: () => _startNewTransaction(context),
@@ -108,6 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
+          backgroundColor: Theme.of(context).primaryColor,
           onPressed: () => _startNewTransaction(context),
           child: const Icon(Icons.add),
         ),

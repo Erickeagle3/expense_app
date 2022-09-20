@@ -22,14 +22,14 @@ class MyTransactions extends StatelessWidget {
                 margin:
                     const EdgeInsets.symmetric(vertical: 12, horizontal: 14),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.cyan, width: 4)),
+                    border: Border.all(color: Colors.amberAccent, width: 4)),
                 padding: const EdgeInsets.all(10),
                 child: Text(
                   '₹ ${Transaction[index].amount.toStringAsFixed(2)}',
                   style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
-                      color: Colors.cyan),
+                      color: Colors.amberAccent),
                 ),
               ),
               Column(
@@ -39,7 +39,7 @@ class MyTransactions extends StatelessWidget {
                   Text(
                     Transaction[index].title,
                     style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 16),
+                        fontWeight: FontWeight.bold, fontSize: 16,),
                   ),
                   Text(
                     DateFormat().format(Transaction[index].date),
