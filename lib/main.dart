@@ -78,9 +78,9 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Expenses Calculator'),
+          title: Text('Expenses Calculator', style: Theme.of(context).textTheme.titleLarge,),
           titleTextStyle: const TextStyle(
-              fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'ComicNeue'),
+              fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black, ),
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only( 
             bottomLeft: Radius.elliptical(20, 20),
@@ -99,14 +99,14 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: ListView(
           children: <Widget>[
-            const SizedBox(
+             SizedBox(
               width: double.infinity,
               child: Card(
                 elevation: 5,
                 child: Text(
                   'expenses overview',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontFamily: 'ComicNeue'),
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
             ),
