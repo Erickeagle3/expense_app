@@ -29,7 +29,10 @@ class MyTransactions extends StatelessWidget {
                   style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
+<<<<<<< HEAD
                       fontFamily: 'ComicNeue',
+=======
+>>>>>>> b78871790c294956f9ca21f1025a0d5de98580fe
                       color: Colors.amberAccent),
                 ),
               ),
@@ -40,7 +43,11 @@ class MyTransactions extends StatelessWidget {
                   Text(
                     Transaction[index].title,
                     style: const TextStyle(
+<<<<<<< HEAD
                         fontWeight: FontWeight.bold, fontSize: 16, fontFamily: 'ComicNeue'),
+=======
+                        fontWeight: FontWeight.bold, fontSize: 16,),
+>>>>>>> b78871790c294956f9ca21f1025a0d5de98580fe
                   ),
                   Text(
                     DateFormat().format(Transaction[index].date),
