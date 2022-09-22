@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:expense_app/data/trans.dart';
+import 'chart_box.dart';
 
 class MyChart extends StatelessWidget {
   final List<Trans> recentTransactions;
 
-  const MyChart(this.recentTransactions, {super.key});
+   const MyChart(this.recentTransactions, {super.key});
 
   List<Map<String, Object>> get groupedTransactionValues {
     return List.generate(7, (index) {
@@ -29,8 +30,15 @@ class MyChart extends StatelessWidget {
         'day': DateFormat.E().format(weekDay).substring(0, 1),
         'amount': totalSum,
       };
+    }).reversed.toList();
+  }
+
+  double get totalSpending {
+    return groupedTransactionValues.fold(0.0, (sum, item) {
+      return sum + (item['amount'] as num);
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +47,12 @@ class MyChart extends StatelessWidget {
       margin: const EdgeInsets.all(10),
       child: Row(
         children: groupedTransactionValues.map((view) {
-          return Text('${view['day']}: ${view['amount']}');
+          return MyChartBox(
+            view['day'] as String,
+            view['amount'] as double,
+            totalSpending == 0.0
+             ? 0.0 : (view['amount'] as double) / totalSpending,
+          );
         }).toList(),
       ),
     );
