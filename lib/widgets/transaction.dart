@@ -8,6 +8,8 @@ class MyTransactions extends StatelessWidget {
   final List<Trans> Transaction;
   const MyTransactions(this.Transaction, {super.key});
 
+ 
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -28,7 +30,7 @@ class MyTransactions extends StatelessWidget {
                   height: 200,
                   width: 200,
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(height: 10  ,),
                 const Text(
                   '''In order to add Transaction
 please click any of the add button''',

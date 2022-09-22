@@ -1,3 +1,4 @@
+import 'package:expense_app/widgets/chart.dart';
 import 'package:flutter/material.dart';
 import 'package:expense_app/data/trans.dart';
 import 'package:expense_app/widgets/new_transaction.dart';
@@ -31,8 +32,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
- final List<Trans> _userTransaction = [
-   /*  Trans(
+  final List<Trans> _userTransaction = [
+    /*  Trans(
       id: 'Erick',
       title: 'HeadSet',
       amount: 1000,
@@ -45,6 +46,16 @@ class _MyHomePageState extends State<MyHomePage> {
       date: DateTime.now(),
     ), */
   ];
+
+  List<Trans> get _recentTransactions {
+    return _userTransaction.where((tx) {
+      return tx.date.isAfter(
+        DateTime.now().subtract(
+          const Duration(days: 7),
+        ),
+      );
+    }).toList();
+  }
 
   // ignore: non_constant_identifier_names
   void _UserInput(String textTitle, double textAmount) {
@@ -78,11 +89,17 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Expenses Calculator', style: Theme.of(context).textTheme.titleLarge,),
+          title: Text(
+            'Expenses Calculator',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
           titleTextStyle: const TextStyle(
-              fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black, ),
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
           shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only( 
+              borderRadius: BorderRadius.only(
             bottomLeft: Radius.elliptical(20, 20),
             bottomRight: Radius.elliptical(20, 20),
           )),
@@ -99,17 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: ListView(
           children: <Widget>[
-             SizedBox(
-              width: double.infinity,
-              child: Card(
-                elevation: 5,
-                child: Text(
-                  'expenses overview',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-              ),
-            ),
+            MyChart(_recentTransactions),
             MyTransactions(_userTransaction),
           ],
         ),
