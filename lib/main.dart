@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Expenses Calculator',
       theme: ThemeData(
         primaryColor: Colors.amberAccent,
+        fontFamily: 'ComicNeue',
       ),
       home: const MyHomePage(),
     );
@@ -79,9 +80,9 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: const Text('Expenses Calculator'),
           titleTextStyle: const TextStyle(
-              fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+              fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'ComicNeue'),
           shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
+              borderRadius: BorderRadius.only( 
             bottomLeft: Radius.elliptical(20, 20),
             bottomRight: Radius.elliptical(20, 20),
           )),
@@ -105,6 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text(
                   'expenses overview',
                   textAlign: TextAlign.center,
+                  style: TextStyle(fontFamily: 'ComicNeue'),
                 ),
               ),
             ),
