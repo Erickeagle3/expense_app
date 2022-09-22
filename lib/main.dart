@@ -31,8 +31,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Trans> _userTransaction = [
-    Trans(
+ final List<Trans> _userTransaction = [
+   /*  Trans(
       id: 'Erick',
       title: 'HeadSet',
       amount: 1000,
@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
       title: 'Cable',
       amount: 900,
       date: DateTime.now(),
-    ),
+    ), */
   ];
 
   // ignore: non_constant_identifier_names

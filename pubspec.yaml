@@ -58,6 +58,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/images/no_edited.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -79,7 +81,6 @@ flutter:
     - family: ComicNeue
       fonts:
         - asset: assets/fonts/ComicNeue-Bold.ttf
-        
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
