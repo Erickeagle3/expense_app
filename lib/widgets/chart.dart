@@ -6,7 +6,7 @@ import 'chart_box.dart';
 class MyChart extends StatelessWidget {
   final List<Trans> recentTransactions;
 
-   const MyChart(this.recentTransactions, {super.key});
+  const MyChart(this.recentTransactions, {super.key});
 
   List<Map<String, Object>> get groupedTransactionValues {
     return List.generate(7, (index) {
@@ -39,21 +39,28 @@ class MyChart extends StatelessWidget {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 7,
       margin: const EdgeInsets.all(10),
-      child: Row(
-        children: groupedTransactionValues.map((view) {
-          return MyChartBox(
-            view['day'] as String,
-            view['amount'] as double,
-            totalSpending == 0.0
-             ? 0.0 : (view['amount'] as double) / totalSpending,
-          );
-        }).toList(),
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: groupedTransactionValues.map((view) {
+            return Flexible(
+              fit: FlexFit.tight,
+              child: MyChartBox(
+                view['day'] as String,
+                view['amount'] as double,
+                totalSpending == 0.0
+                    ? 0.0
+                    : (view['amount'] as double) / totalSpending,
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }

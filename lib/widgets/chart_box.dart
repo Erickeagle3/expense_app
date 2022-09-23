@@ -12,7 +12,7 @@ class MyChartBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text('₹ ${spentAmount.toStringAsFixed(0)}'),
+        FittedBox(child: Text('₹ ${spentAmount.toStringAsFixed(0)}')),
         const SizedBox(
           height: 4,
         ),
