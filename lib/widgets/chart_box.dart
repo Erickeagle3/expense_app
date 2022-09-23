@@ -18,13 +18,13 @@ class MyChartBox extends StatelessWidget {
         ),
         // ignore: sized_box_for_whitespace
         Container(
-          height: 60,
+          height: 80,
           width: 10,
           child: Stack(children: <Widget>[
             Container(
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 1.0),
-                color: Colors.red.shade300,
+                color: Colors.lightGreen,
                 borderRadius: BorderRadius.circular(15),
               ),
             ),
@@ -32,7 +32,7 @@ class MyChartBox extends StatelessWidget {
               heightFactor: spentperofTotal,
               child: Container(
                 decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
+                    color: Colors.green,
                     borderRadius: BorderRadius.circular(15)),
               ),
             )

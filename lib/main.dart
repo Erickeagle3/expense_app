@@ -2,8 +2,8 @@ import 'package:expense_app/widgets/chart.dart';
 import 'package:flutter/material.dart';
 import 'package:expense_app/data/trans.dart';
 import 'package:expense_app/widgets/new_transaction.dart';
-import 'package:expense_app/widgets/transaction.dart';
-
+//import 'package:expense_app/widgets/transaction.dart';
+import 'package:expense_app/widgets/newstylet.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Expenses Calculator',
       theme: ThemeData(
-        primaryColor: Colors.amberAccent,
+        primaryColor: Colors.lightGreen,
         fontFamily: 'ComicNeue',
       ),
       home: const MyHomePage(),

@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names
+/* // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:expense_app/data/trans.dart';
@@ -87,3 +87,4 @@ please click any of the add button''',
     );
   }
 }
+ */
