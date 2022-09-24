@@ -99,16 +99,14 @@ ${DateFormat.yMMMEd().format(_selectedDate as DateTime)}''',
               ),
               Container(
                 margin: const EdgeInsets.only(left: 350),
-                child: Flexible(
-                  child: ElevatedButton(
-                      onPressed: _submiteinfo,
-                      child: Text(
-                        'Add Spents',
-                        selectionColor: Theme.of(context).primaryColor,
-                        style: const TextStyle(color: Colors.black),
-                      )),
-                ),
-              )
+                child: ElevatedButton(
+                    onPressed: _submiteinfo,
+                    child: Text(
+                      'Add Spents',
+                      selectionColor: Theme.of(context).primaryColor,
+                      style: const TextStyle(color: Colors.black),
+                    )),
+              ),
             ],
           ),
         ));
