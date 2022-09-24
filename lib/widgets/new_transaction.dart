@@ -1,4 +1,7 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class NewTransaction extends StatefulWidget {
   final Function adduserinput;
@@ -12,6 +15,7 @@ class NewTransaction extends StatefulWidget {
 class _NewTransactionState extends State<NewTransaction> {
   final _titleInput = TextEditingController();
   final _amountInput = TextEditingController();
+  DateTime? _selectedDate;
 
   void _submiteinfo() {
     final enteredInfo = _titleInput.text;
@@ -21,6 +25,23 @@ class _NewTransactionState extends State<NewTransaction> {
     }
     widget.adduserinput(enteredInfo, enteredAmount);
     Navigator.of(context).pop();
+  }
+
+  void _datepicker() {
+    showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(2021),
+            lastDate: DateTime.now())
+        .then((datePicked) {
+      if (datePicked == null) {
+        return;
+      }
+      setState(() {
+        _selectedDate = datePicked;
+      });
+    });
+    print('...');
   }
 
   @override
@@ -47,11 +68,20 @@ class _NewTransactionState extends State<NewTransaction> {
                 height: 50,
                 child: Row(
                   children: <Widget>[
-                    Text('No Date Chosen'),
+                    Text(
+                      _selectedDate == null
+                          ? 'No Date Chosen'
+                          : '''Selected Date: 
+${DateFormat.yMMMEd().format(_selectedDate as DateTime)}''',
+                      style: const TextStyle(
+                          fontFamily: 'ComicNeue',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14),
+                    ),
                     Container(
                       margin: const EdgeInsets.only(left: 285),
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: _datepicker,
                         child: const Text(
                           'Pick Date',
                           style: TextStyle(
