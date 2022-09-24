@@ -98,42 +98,54 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final appbar = AppBar(
+      title: Text(
+        'Expenses Calculator',
+        style: Theme.of(context).textTheme.titleLarge,
+      ),
+      titleTextStyle: const TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+        bottomLeft: Radius.elliptical(20, 20),
+        bottomRight: Radius.elliptical(20, 20),
+      )),
+      backgroundColor: Theme.of(context).primaryColor,
+      centerTitle: true,
+      actions: <Widget>[
+        IconButton(
+          onPressed: () => _startNewTransaction(context),
+          icon: const Icon(
+            Icons.add_circle_outline,
+          ),
+        )
+      ],
+    );
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Expenses Calculator',
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          titleTextStyle: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-            bottomLeft: Radius.elliptical(20, 20),
-            bottomRight: Radius.elliptical(20, 20),
-          )),
-          backgroundColor: Theme.of(context).primaryColor,
-          centerTitle: true,
-          actions: <Widget>[
-            IconButton(
-              onPressed: () => _startNewTransaction(context),
-              icon: const Icon(
-                Icons.add_circle_outline,
-              ),
-            )
-          ],
-        ),
+        appBar: appbar,
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Column(
                 children: [
-                  MyChart(_recentTransactions),
-                  MyTransactions(_userTransaction, _removeTransaction),
+                  Container(
+                      height: (MediaQuery.of(context).size.height -
+                              appbar.preferredSize.height -
+                              MediaQuery.of(context).padding.top) *
+                          0.2,
+                      child: MyChart(_recentTransactions)),
+                  Container(
+                      height: (MediaQuery.of(context).size.height -
+                              appbar.preferredSize.height -
+                              MediaQuery.of(context).padding.top) *
+                          0.8,
+                      child:
+                          MyTransactions(_userTransaction, _removeTransaction)),
                 ],
               ),
             ],
