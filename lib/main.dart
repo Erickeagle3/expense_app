@@ -66,11 +66,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   // ignore: non_constant_identifier_names
-  void _UserInput(String textTitle, double textAmount) {
+  void _UserInput(String textTitle, double textAmount,DateTime settedDate) {
     final newtext = Trans(
       title: textTitle,
       amount: textAmount,
-      date: DateTime.now(),
+      date: settedDate,
       id: DateTime.now().toString(),
     );
     setState(() {
