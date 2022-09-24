@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class MyChartBox extends StatelessWidget {
   final String leb;
@@ -10,39 +11,49 @@ class MyChartBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        FittedBox(child: Text('₹ ${spentAmount.toStringAsFixed(0)}')),
-        const SizedBox(
-          height: 4,
-        ),
-        // ignore: sized_box_for_whitespace
-        Container(
-          height: 80,
-          width: 10,
-          child: Stack(children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black, width: 1.0),
-                color: Colors.lightGreen,
-                borderRadius: BorderRadius.circular(10),
-              ),
+    return LayoutBuilder(
+      // ignore: avoid_types_as_parameter_names, non_constant_identifier_names
+      builder: (p0, Constraints) {
+        return Column(
+          children: <Widget>[
+            SizedBox(
+                height: Constraints.maxHeight * 0.11,
+                child: FittedBox(
+                    child: Text('₹ ${spentAmount.toStringAsFixed(0)}'))),
+            SizedBox(
+              height: Constraints.maxHeight * 0.10,
             ),
-            FractionallySizedBox(
-              heightFactor: spentperofTotal,
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(15)),
-              ),
-            )
-          ]),
-        ),
-        const SizedBox(
-          height: 4,
-        ),
-        Text(leb),
-      ],
+            // ignore: sized_box_for_whitespace
+            Container(
+              height: Constraints.maxHeight * 0.6,
+              width: 10,
+              child: Stack(children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black, width: 1.0),
+                    color: Colors.lightGreen,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                FractionallySizedBox(
+                  heightFactor: spentperofTotal,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(15)),
+                  ),
+                )
+              ]),
+            ),
+            SizedBox(
+              height: Constraints.maxHeight * 0.09,
+            ),
+            SizedBox(
+                height: Constraints.maxHeight * 0.1,
+                child: FittedBox(child: Text(leb))),
+          ],
+        );
+      },
     );
   }
 }

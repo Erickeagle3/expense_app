@@ -4,8 +4,14 @@ import 'package:expense_app/data/trans.dart';
 import 'package:expense_app/widgets/new_transaction.dart';
 //import 'package:expense_app/widgets/transaction.dart';
 import 'package:expense_app/widgets/newstylet.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown
+  ]);
   runApp(const MyApp());
 }
 
