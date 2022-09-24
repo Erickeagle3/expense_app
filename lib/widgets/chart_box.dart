@@ -25,7 +25,7 @@ class MyChartBox extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 1.0),
                 color: Colors.lightGreen,
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(10),
               ),
             ),
             FractionallySizedBox(

@@ -44,14 +44,29 @@ class _NewTransactionState extends State<NewTransaction> {
                 keyboardType: TextInputType.number,
                 onSubmitted: (value) => submiteinfo(),
               ),
-              TextButton(
-                  style: ButtonStyle(
-                      foregroundColor:
-                          MaterialStateProperty.all(Colors.cyan.shade300)),
+              SizedBox(
+                height: 60,
+                child: Row(
+                  children: <Widget>[
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Pick Date',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.lightGreen),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              ElevatedButton(
                   onPressed: submiteinfo,
-                  child: const Text(
+                  child: Text(
                     'Add Spents',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    selectionColor: Theme.of(context).primaryColor,
+                    style: const TextStyle(color: Colors.black),
                   ))
             ],
           ),

@@ -16,8 +16,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Expenses Calculator',
       theme: ThemeData(
-        primaryColor: Colors.lightGreen,
+        primarySwatch: Colors.lightGreen,
         fontFamily: 'ComicNeue',
+        textTheme: ThemeData.light().textTheme.copyWith(
+          subtitle1: const TextStyle(
+            fontFamily: 'ComicNeue',
+           fontWeight: FontWeight.bold,
+           fontSize: 18
+          ),
+          button: const TextStyle(color: Colors.black)
+        )
       ),
       home: const MyHomePage(),
     );

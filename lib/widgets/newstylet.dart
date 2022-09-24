@@ -48,7 +48,7 @@ please click any of the add button''',
                   child: ListTile(
                     leading: CircleAvatar(
                       backgroundColor: Colors.lightGreen,
-                      radius: 30,
+                      radius: 35,
                       child: Padding(
                         padding: const EdgeInsets.all(6),
                         child: FittedBox(
