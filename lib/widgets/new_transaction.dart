@@ -45,7 +45,6 @@ class _NewTransactionState extends State<NewTransaction> {
         _selectedDate = datePicked;
       });
     });
-    print('...');
   }
 
   @override

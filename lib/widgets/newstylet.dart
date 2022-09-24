@@ -6,7 +6,8 @@ import 'package:intl/intl.dart';
 
 class MyTransactions extends StatelessWidget {
   final List<Trans> Transaction;
-  const MyTransactions(this.Transaction, {super.key});
+  final Function removetrans;
+  const MyTransactions(this.Transaction, this.removetrans, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +67,12 @@ please click any of the add button''',
                     ),
                     subtitle: Text(
                         DateFormat.yMMMEd().format(Transaction[index].date),
-                        style: const TextStyle(fontFamily: 'ComicNeue', fontWeight: FontWeight.bold)),
+                        style: const TextStyle(
+                            fontFamily: 'ComicNeue',
+                            fontWeight: FontWeight.bold)),
+                    trailing: IconButton(
+                        onPressed: () => removetrans(Transaction[index].id),
+                        icon: const Icon(Icons.delete_outline_rounded), color: Colors.red.shade900,),
                   ),
                 );
               },

@@ -5,7 +5,7 @@ import 'package:expense_app/widgets/new_transaction.dart';
 //import 'package:expense_app/widgets/transaction.dart';
 import 'package:expense_app/widgets/newstylet.dart';
 void main() {
-  runApp(const MyApp());
+  runApp( const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -91,7 +91,11 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     );
   }
-
+void _removeTransaction(String id){
+  setState(() {
+    _userTransaction.removeWhere((rtrans) => rtrans.id == id );
+  });
+}
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -125,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
         body: ListView(
           children: <Widget>[
             MyChart(_recentTransactions),
-            MyTransactions(_userTransaction),
+            MyTransactions(_userTransaction, _removeTransaction),
           ],
         ),
         //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
