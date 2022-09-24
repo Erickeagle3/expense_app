@@ -4,8 +4,9 @@ import 'package:expense_app/data/trans.dart';
 import 'package:expense_app/widgets/new_transaction.dart';
 //import 'package:expense_app/widgets/transaction.dart';
 import 'package:expense_app/widgets/newstylet.dart';
+
 void main() {
-  runApp( const MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -16,17 +17,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Expenses Calculator',
       theme: ThemeData(
-        primarySwatch: Colors.lightGreen,
-        fontFamily: 'ComicNeue',
-        textTheme: ThemeData.light().textTheme.copyWith(
-          subtitle1: const TextStyle(
-            fontFamily: 'ComicNeue',
-           fontWeight: FontWeight.bold,
-           fontSize: 18
-          ),
-          button: const TextStyle(color: Colors.black)
-        )
-      ),
+          primarySwatch: Colors.lightGreen,
+          fontFamily: 'ComicNeue',
+          textTheme: ThemeData.light().textTheme.copyWith(
+              subtitle1: const TextStyle(
+                  fontFamily: 'ComicNeue',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18),
+              button: const TextStyle(color: Colors.black))),
       home: const MyHomePage(),
     );
   }
@@ -66,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   // ignore: non_constant_identifier_names
-  void _UserInput(String textTitle, double textAmount,DateTime settedDate) {
+  void _UserInput(String textTitle, double textAmount, DateTime settedDate) {
     final newtext = Trans(
       title: textTitle,
       amount: textAmount,
@@ -91,11 +89,13 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     );
   }
-void _removeTransaction(String id){
-  setState(() {
-    _userTransaction.removeWhere((rtrans) => rtrans.id == id );
-  });
-}
+
+  void _removeTransaction(String id) {
+    setState(() {
+      _userTransaction.removeWhere((rtrans) => rtrans.id == id);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -126,11 +126,18 @@ void _removeTransaction(String id){
             )
           ],
         ),
-        body: ListView(
-          children: <Widget>[
-            MyChart(_recentTransactions),
-            MyTransactions(_userTransaction, _removeTransaction),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Column(
+                children: [
+                  MyChart(_recentTransactions),
+                  MyTransactions(_userTransaction, _removeTransaction),
+                ],
+              ),
+            ],
+          ),
         ),
         //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
