@@ -14,7 +14,7 @@ class _NewTransactionState extends State<NewTransaction> {
 
   final amountInput = TextEditingController();
 
-  void submiteinfo() {
+  void _submiteinfo() {
     final enteredInfo = titleInput.text;
     final enteredAmount = double.parse(amountInput.text);
     if (enteredInfo.isEmpty || enteredAmount <= 0) {
@@ -36,13 +36,13 @@ class _NewTransactionState extends State<NewTransaction> {
                 decoration: const InputDecoration(labelText: 'Title'),
                 controller: titleInput,
                 keyboardType: TextInputType.name,
-                onSubmitted: (value) => submiteinfo(),
+                onSubmitted: (value) => _submiteinfo(),
               ),
               TextField(
                 decoration: const InputDecoration(labelText: 'Amount'),
                 controller: amountInput,
                 keyboardType: TextInputType.number,
-                onSubmitted: (value) => submiteinfo(),
+                onSubmitted: (value) => _submiteinfo(),
               ),
               SizedBox(
                 height: 60,
@@ -62,7 +62,7 @@ class _NewTransactionState extends State<NewTransaction> {
                 ),
               ),
               ElevatedButton(
-                  onPressed: submiteinfo,
+                  onPressed: _submiteinfo,
                   child: Text(
                     'Add Spents',
                     selectionColor: Theme.of(context).primaryColor,
