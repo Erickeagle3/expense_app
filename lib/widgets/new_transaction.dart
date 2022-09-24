@@ -44,29 +44,38 @@ class _NewTransactionState extends State<NewTransaction> {
                 onSubmitted: (value) => _submiteinfo(),
               ),
               SizedBox(
-                height: 60,
+                height: 50,
                 child: Row(
                   children: <Widget>[
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Pick Date',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                            color: Colors.lightGreen),
+                    Text('No Date Chosen'),
+                    Container(
+                      margin: const EdgeInsets.only(left: 285),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Pick Date',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Colors.lightGreen),
+                        ),
                       ),
                     )
                   ],
                 ),
               ),
-              ElevatedButton(
-                  onPressed: _submiteinfo,
-                  child: Text(
-                    'Add Spents',
-                    selectionColor: Theme.of(context).primaryColor,
-                    style: const TextStyle(color: Colors.black),
-                  ))
+              Container(
+                margin: const EdgeInsets.only(left: 350),
+                child: Flexible(
+                  child: ElevatedButton(
+                      onPressed: _submiteinfo,
+                      child: Text(
+                        'Add Spents',
+                        selectionColor: Theme.of(context).primaryColor,
+                        style: const TextStyle(color: Colors.black),
+                      )),
+                ),
+              )
             ],
           ),
         ));
