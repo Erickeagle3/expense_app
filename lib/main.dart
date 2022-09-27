@@ -1,17 +1,18 @@
 import 'package:expense_app/widgets/chart.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:expense_app/data/trans.dart';
 import 'package:expense_app/widgets/new_transaction.dart';
-//import 'package:expense_app/widgets/transaction.dart';
 import 'package:expense_app/widgets/newstylet.dart';
-import 'package:flutter/services.dart';
+//import 'package:flutter/services.dart';
+//import 'package:expense_app/widgets/transaction.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
+  /*  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown
-  ]);
+  ]); */
   runApp(const MyApp());
 }
 
@@ -58,6 +59,8 @@ class _MyHomePageState extends State<MyHomePage> {
       date: DateTime.now(),
     ), */
   ];
+
+  bool _showOverview = true;
 
   List<Trans> get _recentTransactions {
     return _userTransaction.where((tx) {
@@ -138,7 +141,28 @@ class _MyHomePageState extends State<MyHomePage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Column(
-                children: [
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      const Text(
+                        'Show Expenses Overview',
+                        style: TextStyle(
+                            fontFamily: 'ComicNeue',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14),
+                      ),
+                      Switch(
+                        value: _showOverview,
+                        onChanged: (value) {
+                          setState(() {
+                            _showOverview = value;
+                          });
+                        },
+                        activeColor: Colors.lightGreen,
+                      ),
+                    ],
+                  ),
                   Container(
                       height: (MediaQuery.of(context).size.height -
                               appbar.preferredSize.height -
