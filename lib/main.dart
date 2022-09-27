@@ -1,5 +1,4 @@
 import 'package:expense_app/widgets/chart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:expense_app/data/trans.dart';
 import 'package:expense_app/widgets/new_transaction.dart';
