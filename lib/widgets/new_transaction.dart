@@ -49,66 +49,72 @@ class _NewTransactionState extends State<NewTransaction> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-        elevation: 10,
-        child: Container(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            children: <Widget>[
-              TextField(
-                decoration: const InputDecoration(labelText: 'Title'),
-                controller: _titleInput,
-                keyboardType: TextInputType.name,
-                onSubmitted: (value) => _submiteinfo(),
-              ),
-              TextField(
-                decoration: const InputDecoration(labelText: 'Amount'),
-                controller: _amountInput,
-                keyboardType: TextInputType.number,
-                onSubmitted: (value) => _submiteinfo(),
-              ),
-              SizedBox(
-                height: 50,
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      _selectedDate == null
-                          ? 'No Date Chosen'
-                          : '''Selected Date: 
-${DateFormat.yMd().format(_selectedDate as DateTime)}''',
-                      style: const TextStyle(
-                          fontFamily: 'ComicNeue',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(left: 195),
-                      child: TextButton(
-                        onPressed: _datepicker,
-                        child: const Text(
-                          'Pick Date',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: Colors.lightGreen),
-                        ),
-                      ),
-                    )
-                  ],
+    return SingleChildScrollView(
+      child: Card(
+          elevation: 10,
+          child: Container(
+            padding: EdgeInsets.only(
+                top: 10,
+                left: 10,
+                right: 10,
+                bottom: MediaQuery.of(context).viewInsets.bottom + 10),
+            child: Column(
+              children: <Widget>[
+                TextField(
+                  decoration: const InputDecoration(labelText: 'Title'),
+                  controller: _titleInput,
+                  keyboardType: TextInputType.name,
+                  onSubmitted: (value) => _submiteinfo(),
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(left: 270),
-                child: ElevatedButton(
-                    onPressed: _submiteinfo,
-                    child: Text(
-                      'Add Spents',
-                      selectionColor: Theme.of(context).primaryColor,
-                      style: const TextStyle(color: Colors.black),
-                    )),
-              ),
-            ],
-          ),
-        ));
+                TextField(
+                  decoration: const InputDecoration(labelText: 'Amount'),
+                  controller: _amountInput,
+                  keyboardType: TextInputType.number,
+                  onSubmitted: (value) => _submiteinfo(),
+                ),
+                SizedBox(
+                  height: 50,
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                        _selectedDate == null
+                            ? 'No Date Chosen'
+                            : '''Selected Date: 
+${DateFormat.yMd().format(_selectedDate as DateTime)}''',
+                        style: const TextStyle(
+                            fontFamily: 'ComicNeue',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 195),
+                        child: TextButton(
+                          onPressed: _datepicker,
+                          child: const Text(
+                            'Pick Date',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                color: Colors.lightGreen),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 270),
+                  child: ElevatedButton(
+                      onPressed: _submiteinfo,
+                      child: Text(
+                        'Add Spents',
+                        selectionColor: Theme.of(context).primaryColor,
+                        style: const TextStyle(color: Colors.black),
+                      )),
+                ),
+              ],
+            ),
+          )),
+    );
   }
 }
