@@ -75,14 +75,14 @@ class _NewTransactionState extends State<NewTransaction> {
                       _selectedDate == null
                           ? 'No Date Chosen'
                           : '''Selected Date: 
-${DateFormat.yMMMEd().format(_selectedDate as DateTime)}''',
+${DateFormat.yMd().format(_selectedDate as DateTime)}''',
                       style: const TextStyle(
                           fontFamily: 'ComicNeue',
                           fontWeight: FontWeight.bold,
                           fontSize: 14),
                     ),
                     Container(
-                      margin: const EdgeInsets.only(left: 285),
+                      margin: const EdgeInsets.only(left: 195),
                       child: TextButton(
                         onPressed: _datepicker,
                         child: const Text(
@@ -98,7 +98,7 @@ ${DateFormat.yMMMEd().format(_selectedDate as DateTime)}''',
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(left: 350),
+                margin: const EdgeInsets.only(left: 270),
                 child: ElevatedButton(
                     onPressed: _submiteinfo,
                     child: Text(

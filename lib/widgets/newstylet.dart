@@ -1,5 +1,4 @@
 // ignore_for_file: non_constant_identifier_names
-
 import 'package:flutter/material.dart';
 import 'package:expense_app/data/trans.dart';
 import 'package:intl/intl.dart';
@@ -24,8 +23,8 @@ class MyTransactions extends StatelessWidget {
               ),
               Image.asset(
                 'assets/images/no_edited.jpg',
-                height: 200,
-                width: 200,
+                height: 150,
+                width: 150,
               ),
               const SizedBox(
                 height: 10,

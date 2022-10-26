@@ -7,7 +7,7 @@ import 'package:expense_app/widgets/newstylet.dart';
 //import 'package:expense_app/widgets/transaction.dart';
 
 void main() {
-  /*  WidgetsFlutterBinding.ensureInitialized();
+/*   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown
@@ -106,6 +106,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final lanscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     final appbar = AppBar(
       title: Text(
         'Expenses Calculator',
@@ -132,8 +134,17 @@ class _MyHomePageState extends State<MyHomePage> {
         )
       ],
     );
+    final tlist = SizedBox(
+        height: (MediaQuery.of(context).size.height -
+                appbar.preferredSize.height -
+                MediaQuery.of(context).padding.top) *
+            0.8,
+        child: MyTransactions(_userTransaction, _removeTransaction));
     return MaterialApp(
       home: Scaffold(
+        bottomNavigationBar: const BottomAppBar(
+          child: Text('testing'),
+        ),
         appBar: appbar,
         body: SingleChildScrollView(
           child: Column(
@@ -141,40 +152,45 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               Column(
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      const Text(
-                        'Show Expenses Overview',
-                        style: TextStyle(
-                            fontFamily: 'ComicNeue',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14),
-                      ),
-                      Switch(
-                        value: _showOverview,
-                        onChanged: (value) {
-                          setState(() {
-                            _showOverview = value;
-                          });
-                        },
-                        activeColor: Colors.lightGreen,
-                      ),
-                    ],
-                  ),
-                  Container(
-                      height: (MediaQuery.of(context).size.height -
-                              appbar.preferredSize.height -
-                              MediaQuery.of(context).padding.top) *
-                          0.2,
-                      child: MyChart(_recentTransactions)),
-                  Container(
-                      height: (MediaQuery.of(context).size.height -
-                              appbar.preferredSize.height -
-                              MediaQuery.of(context).padding.top) *
-                          0.8,
-                      child:
-                          MyTransactions(_userTransaction, _removeTransaction)),
+                  if (lanscape)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        const Text(
+                          'Show Expenses Overview',
+                          style: TextStyle(
+                              fontFamily: 'ComicNeue',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14),
+                        ),
+                        Switch(
+                          value: _showOverview,
+                          onChanged: (value) {
+                            setState(() {
+                              _showOverview = value;
+                            });
+                          },
+                          activeColor: Colors.lightGreen,
+                        ),
+                      ],
+                    ),
+                  if (!lanscape)
+                    SizedBox(
+                        height: (MediaQuery.of(context).size.height -
+                                appbar.preferredSize.height -
+                                MediaQuery.of(context).padding.top) *
+                            0.2,
+                        child: MyChart(_recentTransactions)),
+                  if (!lanscape) tlist,
+                  if (lanscape)
+                    _showOverview
+                        ? SizedBox(
+                            height: (MediaQuery.of(context).size.height -
+                                    appbar.preferredSize.height -
+                                    MediaQuery.of(context).padding.top) *
+                                0.2,
+                            child: MyChart(_recentTransactions))
+                        : tlist
                 ],
               ),
             ],
