@@ -66,11 +66,21 @@ please click any of the add button''',
                       style: const TextStyle(
                           fontFamily: 'ComicNeue',
                           fontWeight: FontWeight.bold)),
-                  trailing: IconButton(
-                    onPressed: () => removetrans(Transaction[index].id),
-                    icon: const Icon(Icons.delete_outline_rounded),
-                    color: Colors.red.shade900,
-                  ),
+                  trailing: MediaQuery.of(context).size.width > 360
+                      ? TextButton.icon(
+                          icon:  Icon(Icons.delete_outline_rounded, color: Colors.red.shade900,),
+                          label: Text(
+                            'Delete',
+                            style: TextStyle(color: Colors.red.shade900),
+                          ),
+                          onPressed: () => removetrans(Transaction[index].id))
+                      : IconButton(
+                          onPressed: () => removetrans(Transaction[index].id),
+                          icon: Icon(
+                            Icons.delete_outline_rounded,
+                            color: Colors.red.shade900,
+                          ),
+                        ),
                 ),
               );
             },
