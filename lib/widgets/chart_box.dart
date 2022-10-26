@@ -30,7 +30,7 @@ class MyChartBox extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black, width: 1.0),
-                    color: Colors.lightGreen,
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
@@ -38,7 +38,7 @@ class MyChartBox extends StatelessWidget {
                   heightFactor: spentperofTotal,
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.black,
+                        color: Colors.lightGreen,
                         borderRadius: BorderRadius.circular(15)),
                   ),
                 )
